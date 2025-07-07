@@ -1,0 +1,68 @@
+.body {
+    background-color: #8e8686;
+}
+
+.container {
+    width: 430px;
+    height: 200px;
+    background-color: white;
+
+    margin: 0 auto;
+}
+
+.slider {
+    height: 100%;
+    padding: 0 10px;
+
+    /* flexbox start */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /* flexbox end */
+
+    /* slider start */
+    overflow-x: scroll;
+    /* slider end */
+
+    /* scroll bar disable start */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* scroll bar disable end */
+
+    /* for slide scroll script start */
+    cursor: grab;
+    cursor: -webkit-grab;
+    /* for slide scroll script end */
+
+    /* prevent text selecting start */
+    user-select: none;
+    -webkit-user-select: none;
+    /* prevent text selecting end */
+
+    /* prevent drag start */
+    -webkit-user-drag: none;
+    user-drag: none;
+    /* prevent drag end */
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* for slide scroll script start */
+.slider.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+/* for slide scroll script end */
+
+.slider-item {
+    background-color: palevioletred;
+    height: 180px;
+    width: 200px;
+
+    /* flex item start */
+    flex-shrink: 0;
+    /* flex item end */
+}

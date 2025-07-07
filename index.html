@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Slider</title>
+</head>
+<body class="body">
+    <div class="container">
+        <div class="slider">
+            <div class="slider-item">1</div>
+            <div class="slider-item">2</div>
+            <div class="slider-item">3</div>
+            <div class="slider-item">4</div>
+            <div class="slider-item">5</div>
+            <div class="slider-item">6</div>
+        </div>
+    </div>
+</body>
+<script>
+    //=======  slide scroll functionality  =======
+
+    // e.pageX - Coordinate x of mouse property of mouse event
+    // elem.offsetLeft - returns the number of pixels that the upper left corner of the current element is offset to the left within the HTMLElement.offsetParent node.
+    // slider.scrollLeft - gets or sets the number of pixels by which an element's content is scrolled from its left edge
+    // 
+    // 
+
+    const slider = document.querySelector('.slider');
+    const sensitivity = 1;
+
+    let isDown = false;
+    let startX; // x-axis value of mouse when 'mousedown'
+    let scrollLeft; // how much alredy scrolled in slider
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * sensitivity;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+    // ====================================
+</script>
+</html>
