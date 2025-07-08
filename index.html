@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./swiper/swiper.css">
     <title>Slider</title>
 </head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .swiper {
+        width: 600px;
+        height: 300px;
+    }
+</style>
+
 <body class="body">
+    <h1 style="text-align: center; color: white">Custom slider</h1>
     <div class="container">
         <div class="slider">
             <div class="slider-item">1</div>
@@ -15,6 +30,23 @@
             <div class="slider-item">4</div>
             <div class="slider-item">5</div>
             <div class="slider-item">6</div>
+        </div>
+    </div>
+
+    <h1 style="text-align: center; color: white">Swiper</h1>
+    <div class="swiper" style="background-color: white;">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide" style="padding: 10px;">
+                <div style="background-color: pink; height: 100%;">Slide 1</div>
+            </div>
+            <div class="swiper-slide" style="padding: 10px;">
+                <div style="background-color: pink; height: 100%;">Slide 2</div>
+            </div>
+            <div class="swiper-slide" style="padding: 10px;">
+                <div style="background-color: pink; height: 100%;">Slide 3</div>
+            </div>
         </div>
     </div>
 </body>
@@ -60,4 +92,25 @@
     });
     // ====================================
 </script>
+<script src="./swiper/swiper.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        slidesPerView: 2,
+
+        autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      }
+    });
+</script>
+
 </html>
